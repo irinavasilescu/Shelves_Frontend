@@ -1,0 +1,86 @@
+.intro-header {
+  height: unset !important;
+}
+.intro-2 {
+  // background: url("../../../assets/book_image.jpeg") no-repeat center center;
+  background-size: cover;
+}
+.view {
+  height: 100vh !important;
+}
+.top-nav-collapse {
+  background-color: #595959 !important;
+}
+.rgba-gradient .full-bg-img {
+  background: linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
+}
+.full-bg-img {
+  height: 100%;
+}
+.card {
+  background-color: rgba(229, 228, 255, 0.2);
+}
+
+.md-form .prefix {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.md-form label {
+  color: #ffffff;
+}
+h6 {
+  line-height: 1.7;
+}
+@media (max-width: 740px) {
+  .full-height,
+  .full-height body,
+  .full-height header,
+  .full-height header .view {
+    height: 1040px;
+  }
+}
+
+@media (min-width: 1200px) {}
+.offset-xl-1 {
+    margin-left: 27.3333333333%;
+}
+
+.form-control:focus {
+  color: black;
+  background-color: #fff;
+  border-color: #fff;
+  outline: {
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+  }
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1)
+}
+
+.wrong-text {
+  color: red;
+}
+
+.card {
+  box-shadow: none !important
+}
+
+.background-login {
+  background-image: url('./../../../assets/Art-Books.jpg');
+  background-size: cover;
+  height: auto;
+  overflow: auto;
+}
+
+@media screen and (max-width: 992px) {
+  .col {
+      flex: 50%;
+  }
+}
+
+/* On screens that are 800px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .row {
+      flex-direction: column;
+  }
+}

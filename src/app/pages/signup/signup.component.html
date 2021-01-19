@@ -1,0 +1,41 @@
+<html>
+<body style="height:100%; display: flex; align-items: center; justify-content: center;" class="background-signup">
+	<div class="p-5" style="border-radius: 10px; background: rgba(255, 255, 255, 0.6);">
+		<h2 class="ft" style="text-align-last: center; color: black">REGISTER</h2>
+		<mat-form-field appearance="legacy" style="width: 300px;">
+			<mat-label class="ft">First Name</mat-label>
+			<input class="ft" [(ngModel)]="f_name" matInput>
+			<mat-icon matSuffix style="color: black">face</mat-icon>
+		</mat-form-field>
+		<br>
+		<mat-form-field appearance="legacy" style="width: 300px;">
+			<mat-label class="ft">Last Name</mat-label>
+			<input class="ft" [(ngModel)]="l_name" matInput>
+			<mat-icon matSuffix style="color: black">face</mat-icon>
+		</mat-form-field>
+		<br>
+		<mat-form-field appearance="legacy" style="width: 300px;">
+			<mat-label class="ft">Username</mat-label>
+			<input class="ft" [(ngModel)]="username" matInput [ngClass]="{'wrong-text': wrong === true}" (keyup)="wrong = false">
+			<mat-icon matSuffix style="color: black">face</mat-icon>
+		</mat-form-field>
+		<br>
+		<mat-form-field appearance="legacy" style="width: 300px;">
+			<mat-label class="ft">Email</mat-label>
+			<input class="ft" [(ngModel)]="email" matInput [ngClass]="{'wrong-text': wrong === true}" (keyup)="wrong = false">
+			<mat-icon matSuffix style="color: black">alternate_email</mat-icon>
+		</mat-form-field>
+		<br>
+		<mat-form-field appearance="legacy" style="width: 300px;">
+			<mat-label class="ft">Password</mat-label>
+			<input class="ft" type="password" [(ngModel)]="password" matInput>
+			<mat-icon matSuffix style="color: black">vpn_key</mat-icon>
+		</mat-form-field>
+		<br>
+		<div style="text-align-last: center;" class="mt-4">
+			<button mat-raised-button class="ft" style="box-shadow: none !important; outline: none; font-size: 15px; margin-right: 20px; background: black;" (click)="signup()"><span style="color: white">SIGN UP</span></button>
+			<button mat-raised-button class="ft" style="box-shadow: none !important; outline: none; font-size: 15px;" routerLink="/login"><span style="color: black">LOG IN</span></button>
+		</div>
+	</div>
+</body>
+</html>

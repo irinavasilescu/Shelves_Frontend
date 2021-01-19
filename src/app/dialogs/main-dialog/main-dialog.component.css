@@ -1,0 +1,8 @@
+.background-dialog {
+    /* background-image: url('./../../../assets/method-draw-image (18).svg'); */
+    background-position: 0%;
+    background-size: cover;
+    height: 100%;
+    overflow: auto;
+    width: auto;
+}

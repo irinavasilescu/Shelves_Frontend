@@ -1,0 +1,112 @@
+<html>
+<body class="background-my-shelf" style="height: 100%; width: auto;">
+    
+    <navigation></navigation>
+
+    <div style="text-align: center;">
+        <div>
+            <h1 class="ft p-5" style="color: black; background-image: url('./../../../assets/Art-Books.jpg');">
+                <span style="font-size: 10vw">SHELF</span>
+            </h1>
+        </div>
+
+        <br>
+
+        <div class="w-100" style="text-align: center; color: #ffcaa4;">
+            <mat-icon>fiber_manual_record</mat-icon>
+            <mat-icon>fiber_manual_record</mat-icon>
+            <mat-icon>fiber_manual_record</mat-icon>
+        </div>
+
+        <br>
+
+        <!-- <mat-form-field>
+            <mat-label><span class="ft" style="color: black">Filter by book</span></mat-label>
+            <input matInput [(ngModel)]="filterBook" (keyup)="filterByBook()">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label><span class="ft" style="color: black">Filter by author</span></mat-label>
+            <input matInput [(ngModel)]="filterAuthor" (keyup)="filterByAuthor()">
+        </mat-form-field> -->
+
+        <h1 class="ft" *ngIf="genres && genres.length">Everything on my shelf</h1>
+
+        <div>
+            <div *ngIf="genres && !genres.length">
+                <br>
+                <h3 class="ft" style="color: black">There is nothing on your shelf yet! </h3>
+                <br>
+                <span class="ft" style="color: black">You can add books to your shelf by browsing all categories on SHELVES.</span> 
+                <br>
+                <span class="ft" style="color: black">Grow your shelf by adding your favourite books!</span>
+            </div>
+
+
+            <div style="height: auto; display: flex; flex-wrap: wrap; justify-content: center;">
+                <div *ngFor="let book of allBooks" style="display: inline-flex;">
+                    <div class="flip-card" style="float: left;">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="book-main-icon" style="cursor: pointer" [src]="book.s3_image_path" (click)="openDialog(book)">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 class="ft" style="font-size: 1em; text-align: center; font-weight: 700;">{{book.book_name}}</h1> 
+                                <span style="font-size: x-small; margin-top: -1px;">by {{book.author}}</span>
+                                <div class="pt-2" style="display: flex; flex-direction: row;">
+                                    <mat-icon *ngFor="let star of book.stars" style="color: #ffd11a; font-size: 17px;">star_rate</mat-icon>
+                                </div>
+                                <span class="ft" style="font-size: small">{{book.description.slice(0, 140) + " ..."}}</span>
+                                <br>
+                                <button mat-raised-button style="outline: none; cursor: pointer; background-color: #f8985c;" (click)="openDialog(book)"><span class="ft">READ MORE</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>  
+        
+        <br>
+        <div class="w-100 mb-1" style="text-align: center; color: #ffcaa4;">
+            <mat-icon>fiber_manual_record</mat-icon>
+            <mat-icon>fiber_manual_record</mat-icon>
+            <mat-icon>fiber_manual_record</mat-icon>
+        </div>
+
+        <br>
+        
+
+        <div style="background-color: #ffcaa4;">
+            <h1 class="pt-4 ft" style="text-align: center; color: black">
+                My current reads
+            </h1>
+            <div style="height: auto; display: flex; flex-wrap: wrap; justify-content: center;">
+                <div *ngFor="let book of currentlyReadingBooks" style="display: inline-flex;">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="book-main-icon" style="cursor: pointer" [src]="book.s3_image_path" (click)="openDialog(book)">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 class="ft" style="font-size: 1em; text-align: center; font-weight: 700;">{{book.book_name}}</h1> 
+                                <span style="font-size: x-small; margin-top: -1px;">by {{book.author}}</span>
+                                <div class="pt-2" style="display: flex; flex-direction: row;">
+                                    <mat-icon *ngFor="let star of book.stars" style="color: yellow; font-size: 17px;">star_rate</mat-icon>
+                                </div>
+                                <span class="ft" style="font-size: small">{{book.description.slice(0, 140) + " ..."}}</span>
+                                <br>
+                                <button mat-raised-button style="outline: none; cursor: pointer; background-color: #f8985c;" (click)="openDialog(book)"><span class="ft">READ MORE</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>  
+
+
+    </div>
+    
+</body>
+</html>

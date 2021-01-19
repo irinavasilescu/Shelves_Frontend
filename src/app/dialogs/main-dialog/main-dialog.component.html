@@ -1,0 +1,33 @@
+<div>
+    <button mat-flat-button style="cursor: pointer; float: right; outline: none;" (click)="closeDialog()">
+        <mat-icon style="color: black">clear</mat-icon>
+    </button>  
+    <div class="row w-100 pl-4">
+        <div class="col" style="display: flex; align-items: center; justify-content: center;">
+            <img style="width: 14em; height: 20em;" [src]="data.book.s3_image_path">
+        </div>
+        <div class="col" style="text-align: center;">
+            <div>
+                <span class="ft" style="font-size: large; font-weight: 700;">{{data.book.book_name}}</span>
+                <br>
+                <span class="ft" style="font-size: small;">by {{data.book.author}}</span>
+                <br><hr/>
+                <div><span class="ft">{{data.book.description}}</span></div>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <div class="mt-2" style="text-align: center;">
+        <button class="m-2" mat-raised-button style="outline: none; background-color: #f8985c;" (click)="closeDialog(); navigateToReadingPage();">
+            <span class="ft" style="color: black;">READ</span>
+        </button>
+        <button class="m-2" *ngIf="!isOnShelf" mat-raised-button style="outline: none; background-color: white" (click)="addToShelf()">
+            <span class="ft" style="color: black">ADD TO SHELF</span>
+        </button>
+        <button class="m-2" *ngIf="isOnShelf" mat-raised-button style="outline: none; background-color: white" (click)="removeFromShelf()">
+            <span class="ft" style="color: red">REMOVE FROM SHELF</span>
+        </button>    
+    </div>
+    <br>
+</div>
+

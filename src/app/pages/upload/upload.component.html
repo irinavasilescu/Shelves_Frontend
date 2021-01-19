@@ -1,0 +1,95 @@
+<html>
+    <body style="height: 100%">
+    <navigation></navigation>
+
+    <div style="text-align: center;">
+
+    <div>
+        <h1 class="ft p-5" style="color: black; background-image: url('./../../../assets/Art-Books.jpg');">
+            <span style="font-size: 8vw">UPLOAD YOUR BOOK</span>
+        </h1>
+    </div>
+
+    <br>
+
+    <div class="w-100" style="text-align: center; color: #ffcaa4;">
+        <mat-icon>fiber_manual_record</mat-icon>
+        <mat-icon>fiber_manual_record</mat-icon>
+        <mat-icon>fiber_manual_record</mat-icon>
+    </div>
+
+    <br>
+
+    <div class="pt-3" style="text-align: center; text-align: -webkit-center;">
+        <div style="align-items: center;"> <!-- class="row" -->
+            <div> <!-- class="col align-right" -->
+                <mat-form-field appearance="legacy" style="min-width: 300px; width: 30%;">
+                    <mat-label class="ft" style="color: black">Book Name *</mat-label>
+                    <input class="ft" [(ngModel)]="bookName" (keyup)="autoCompleteFileAndImageName()" matInput
+                        placeholder="Ex. A Game of Thrones">
+                    <mat-icon matSuffix style="color: black">book</mat-icon>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy" style="min-width: 300px; width: 30%;">
+                    <mat-label class="ft" style="color: black">Author Name *</mat-label>
+                    <input class="ft" [(ngModel)]="authorName" matInput placeholder="Ex. George R.R. Martin">
+                    <mat-icon matSuffix style="color: black">face</mat-icon>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy" style="min-width: 300px; width: 30%;">
+                    <mat-label class="ft" style="color: black">Genre *</mat-label>
+                    <mat-select [(ngModel)]="genre">
+                        <mat-option *ngFor="let genre of allGenres" class="ft" [value]="genre">{{genre | titlecase}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width" style="min-width: 300px; width: 30%;">
+                    <mat-label class="ft" style="color: black">Short description *</mat-label>
+                    <textarea class="ft" [(ngModel)]="description" style="height: 155px" matInput
+                        placeholder="Ex. A Game of Thrones, is the first in an epic series about a land in which the seasons shift between periods of seemingly endless summer and seemingly endless winter. ... Within Winterfell itself, war soon erupts when the king is murdered by a family grasping for unlawful power."></textarea>
+                </mat-form-field>
+            </div>
+
+            <br><br>
+        
+            <div [ngClass]="fileOver === true ? 'shake' : 'stop-animation'"> <!-- class="col align-left" -->
+                <div style="position: relative;" class="center-file-browse">
+                    <input class="input-dropzone" type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+                    <mat-icon style="color: black">cloud_upload</mat-icon>
+                    <br><br>
+                    <h6 class="ft" style="color: black">Drag and drop book and book image here</h6>
+                    <h6 class="ft" style="color: black">or</h6>
+                    <br>
+                    <button class="ft" style="cursor:pointer; outline: none; cursor: pointer; background-color: #f8985c;"mat-raised-button for="fileDropRef"><span style="color: black">BROWSE</span></button>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div *ngIf="files.length">
+            <div *ngFor="let file of files" class="row mt-2 mb-2 pt-2 pb-2" style="width: 60vw; background-color: #ffcaa4; border-radius: 10px;">
+                <div class="col">
+                    <span class="ft" style="color: black; vertical-align: middle;">{{file.name.slice(0, 20) + " ..."}}</span>
+                </div>
+                <div class="col" style="text-align: right;">
+                    <mat-icon style="cursor: pointer; vertical-align: middle;" (click)="removeFile(file)">delete</mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <button *ngIf="files.length" 
+                mat-raised-button class="ft mb-5" 
+                style="outline: none; cursor: pointer; background-color: #f8985c;"
+                (click)="submit()">
+            <span style="color: black">SUBMIT</span>
+        </button>
+
+    </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+.background-upload {
+    background-image: url('./../../../assets/Art-Books.jpg');
+    background-position: 0%;
+    background-size: cover;
+    height: auto;
+    overflow: auto;
+}
+
+.tb-upload {
+    background-color: rgba(255, 255, 255, .3);
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+/* @media screen and (max-width: 768px) {
+    
+} */
+
+@media screen and (min-width: 769px) {
+    .align-right {
+        text-align: right;
+    }
+    .align-left {
+        text-align: left;
+    }
+    .center-file-browse {
+        width: 300px;
+        text-align: center;
+    }
+}

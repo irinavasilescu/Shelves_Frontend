@@ -1,0 +1,36 @@
+<mat-toolbar class="tb nav" style="background-color: rgba(255, 255, 255, 0.9);">
+    <h1 class="ft tb-title ml-4" (click)="navigateTo('main')" style="cursor: pointer; color: black;"><a>SHELVES</a></h1>
+    <span class="fill-remaining-space"></span>
+    
+    <h5 class="ft tb-nav-buttons" [matMenuTriggerFor]="browse_genres" style="cursor: pointer; color: black;">Browse</h5>
+    <mat-menu #browse_genres="matMenu">
+        <button mat-menu-item *ngFor="let genre of valuesService.genres" class="ft disable_ripple" (click)="navigateToWithRefresh('browse/literature/' + genre)" style="cursor: pointer; outline: none; color: black;">
+            <span>{{ genre | titlecase }}</span>
+        </button>
+    </mat-menu>
+    <h5 class="ft tb-nav-buttons" (click)="navigateTo('myshelf')" style="cursor: pointer; color: black;">My Shelf</h5>
+    <h5 class="ft tb-nav-buttons" (click)="navigateTo('account')" style="cursor: pointer; color: black;">Account</h5>
+    <h5 class="ft tb-nav-buttons" (click)="navigateTo('upload')" style="cursor: pointer; color: black;">Upload</h5>
+    <h5 class="ft tb-nav-buttons mr-4" (click)="logout()" style="cursor: pointer; color: black;">Log out</h5>
+</mat-toolbar>
+
+
+<mat-toolbar class="tb dropdown-nav" style="background-color: rgba(255, 255, 255, 0.9);">
+    <h1 class="ft tb-title" (click)="navigateTo('main')" style="cursor: pointer; color: black;"><a>SHELVES</a></h1>
+    <span class="fill-remaining-space"></span>
+    <button mat-button class="ft tb-nav-buttons" [matMenuTriggerFor]="menu_buttons" style="cursor: pointer; color: black; outline: none;">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu_buttons="matMenu">
+        <span mat-menu-item class="ft tb-nav-buttons" [matMenuTriggerFor]="browse_genres" style="cursor: pointer; color: black;">Browse</span>
+        <mat-menu #browse_genres="matMenu">
+            <button mat-menu-item *ngFor="let genre of valuesService.genres" class="ft disable_ripple" (click)="navigateToWithRefresh('browse/literature/' + genre)" style="cursor: pointer; outline: none; color: black;">
+                <span>{{ genre | titlecase }}</span>
+            </button>
+        </mat-menu>
+        <span mat-menu-item class="ft tb-nav-buttons" (click)="navigateTo('myshelf')" style="cursor: pointer; color: black;">My Shelf</span>
+        <span mat-menu-item class="ft tb-nav-buttons" (click)="navigateTo('account')" style="cursor: pointer; color: black;">Account</span>
+        <span mat-menu-item class="ft tb-nav-buttons" (click)="navigateTo('upload')" style="cursor: pointer; color: black;">Upload</span>
+        <span mat-menu-item class="ft tb-nav-buttons" (click)="logout()" style="cursor: pointer; color: black;">Log out</span>
+    </mat-menu>
+</mat-toolbar>

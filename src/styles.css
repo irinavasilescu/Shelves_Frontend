@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.style-succes {
+    background: #73bf87 !important;
+}
+
+.style-error {
+    background: #bf7373 !important;
+}
+
+.style-message {
+    background: #7a7a7a !important;
+}
+
+.mat-progress-bar-fill::after {
+    background-color: #6e6e6e;
+}
+
+.mat-progress-bar-buffer {
+    background-color: #cccccc;
+}
+
+.mat-form-field-ripple {
+    background-color: #6e6e6e !important;
+}
+
+.mat-form-field-label {
+    color: #6e6e6e !important;
+}
+
+.mat-selected {
+    color: black !important;
+}
+
+.mat-dialog-container {
+    padding: 0 !important;
+}

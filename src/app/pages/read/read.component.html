@@ -1,0 +1,52 @@
+<div *ngIf="!pdfLoaded">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div style="text-align: center;">
+    <div *ngIf="pdfLoaded">
+        <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div style="display: inline-block;">
+            <button mat-button class="ft" style="margin-right: 15px; outline: none; background-color: #ffcaa4;" (click)="setBookmark()">SET BOOKMARK</button>
+            <mat-form-field class="example-full-width">
+                <div style="text-align: center">
+                    <input matInput class="ft" [(ngModel)]="pageToGoTo" value="{{pageLeft + ' - ' + pageRight}}">
+                </div>
+            </mat-form-field>
+            <button mat-button class="ft" style="margin-left: 15px; outline: none; background-color: #ffcaa4;" (click)="goToPage()">JUMP TO PAGE</button>
+        </div>
+    </div>
+    <div style="display: inline-flex; padding: 10px;">
+        <div style="place-self: center; margin-right: 10px;">
+            <button mat-button style="cursor: pointer; outline: none" (click)="prevPages()"><mat-icon>arrow_back_ios</mat-icon></button>
+        </div>
+        <div style="text-align: center">
+            <div style="width:500px; margin:0 auto; display: inline-block">
+                <pdf-viewer [src]='pdf' 
+                        [render-text]="true"
+                        [page]="pageLeft"
+                        [show-all]="false"
+                        [original-size]="false"
+                        style="display: block;"
+                        [fit-to-page]='true'
+                        (after-load-complete)="pdfLoad()">
+                </pdf-viewer>
+            </div>
+            <div style="width:500px; margin:0 auto; display: inline-block">
+                <pdf-viewer [src]='pdf' 
+                        [render-text]="true"
+                        [page]="pageRight"
+                        [show-all]="false"
+                        [original-size]="false"
+                        style="display: block;"
+                        [fit-to-page]='true'
+                        (after-load-complete)="afterLoadComplete($event)">
+                </pdf-viewer>
+            </div>
+        </div>
+        <div style="place-self: center; margin-left: 10px;">
+            <button mat-button style="cursor: pointer; outline: none" (click)="nextPages()"><mat-icon>arrow_forward_ios</mat-icon></button>
+        </div>
+    </div>
+</div>
